@@ -1,0 +1,103 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#0b0f1a;
+color:white;
+min-height:100vh;
+animation:fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn{
+from{opacity:0;}
+to{opacity:1;}
+}
+
+.bg-overlay{
+position:fixed;
+width:100%;
+height:100%;
+background:
+radial-gradient(circle at 20% 30%, rgba(255,0,0,0.15), transparent 40%),
+radial-gradient(circle at 80% 70%, rgba(255,80,80,0.15), transparent 40%);
+z-index:-1;
+}
+
+.honda-section{
+width:90%;
+max-width:1300px;
+margin:80px auto;
+text-align:center;
+}
+
+.title{
+font-size:42px;
+margin-bottom:10px;
+}
+
+.subtitle{
+opacity:0.7;
+margin-bottom:60px;
+}
+
+.models-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:40px;
+}
+
+.model-card{
+position:relative;
+border-radius:25px;
+overflow:hidden;
+text-decoration:none;
+color:white;
+transition:0.4s;
+transform:translateY(40px);
+opacity:0;
+animation:cardEntry 1s ease forwards;
+}
+
+.model-card:nth-child(1){animation-delay:0.2s;}
+.model-card:nth-child(2){animation-delay:0.4s;}
+.model-card:nth-child(3){animation-delay:0.6s;}
+.model-card:nth-child(4){animation-delay:0.8s;}
+.model-card:nth-child(5){animation-delay:1s;}
+
+@keyframes cardEntry{
+to{opacity:1; transform:translateY(0);}
+}
+
+.model-card img{
+width:100%;
+height:230px;
+object-fit:contain;
+filter:brightness(80%);
+transition:0.4s;
+}
+
+.model-card:hover{
+transform:translateY(-10px) scale(1.05);
+box-shadow:0 25px 60px rgba(255,0,0,0.5);
+}
+
+.model-card:hover img{
+filter:brightness(100%);
+}
+
+.model-info{
+position:absolute;
+bottom:0;
+width:100%;
+padding:20px;
+background:linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+}
+
+.model-info h3{
+font-size:20px;
+letter-spacing:1px;
+}

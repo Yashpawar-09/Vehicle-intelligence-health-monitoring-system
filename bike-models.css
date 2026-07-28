@@ -1,0 +1,123 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+min-height:100vh;
+background:#0b0f1a;
+color:white;
+animation:fadeIn 0.8s ease forwards;
+
+/* Important Fix */
+overflow-x:hidden;
+overflow-y:auto;
+}
+
+@keyframes fadeIn{
+from{opacity:0;}
+to{opacity:1;}
+}
+
+/* Animated Background Glow */
+.bg-overlay{
+position:absolute;
+width:100%;
+height:100%;
+background:
+radial-gradient(circle at 25% 35%, rgba(255,165,0,0.15), transparent 40%),
+radial-gradient(circle at 75% 65%, rgba(0,224,255,0.15), transparent 40%);
+animation:pulse 6s infinite alternate;
+}
+
+@keyframes pulse{
+from{opacity:0.6;}
+to{opacity:1;}
+}
+
+.bike-section{
+position:relative;
+width:90%;
+max-width:1300px;
+margin:80px auto;
+text-align:center;
+z-index:2;
+}
+
+.title{
+font-size:42px;
+margin-bottom:10px;
+animation:slideDown 1s ease forwards;
+}
+
+.subtitle{
+opacity:0.7;
+margin-bottom:60px;
+animation:slideDown 1.4s ease forwards;
+}
+
+@keyframes slideDown{
+from{transform:translateY(-20px);opacity:0;}
+to{transform:translateY(0);opacity:1;}
+}
+
+.bike-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:40px;
+}
+
+.bike-card{
+position:relative;
+border-radius:25px;
+overflow:hidden;
+cursor:pointer;
+transform:translateY(40px);
+opacity:0;
+animation:cardEntry 1s ease forwards;
+transition:0.4s ease;
+text-decoration: none;
+color: white;
+display: block;
+}
+
+.bike-card:nth-child(1){animation-delay:0.3s;}
+.bike-card:nth-child(2){animation-delay:0.5s;}
+.bike-card:nth-child(3){animation-delay:0.7s;}
+.bike-card:nth-child(4){animation-delay:0.9s;}
+
+@keyframes cardEntry{
+to{opacity:1; transform:translateY(0);}
+}
+
+.bike-card img{
+width:100%;
+height:220px;
+object-fit:cover;
+filter:brightness(75%);
+transition:0.4s;
+}
+
+.bike-card:hover{
+transform:translateY(-10px) scale(1.05);
+box-shadow:0 25px 60px rgba(255,165,0,0.5);
+}
+
+.bike-card:hover img{
+filter:brightness(100%);
+}
+
+.bike-info{
+position:absolute;
+bottom:0;
+width:100%;
+padding:20px;
+background:linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+}
+
+.bike-info h3{
+font-size:20px;
+letter-spacing:1px;
+}
